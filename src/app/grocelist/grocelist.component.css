@@ -1,0 +1,15 @@
+section{
+    position: relative;
+    left: 200px;
+}
+table{
+    left: 100px;
+    width: 30%;
+    
+}
+td{
+    text-align: center;
+}
+tr:hover {background-color: skyblue;}
+html { background-color: black; }
+

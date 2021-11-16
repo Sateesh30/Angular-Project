@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12 mt-4">
+        <h1 class="text-center">Items List</h1>
+        <table class="table table-bordered table-striped table-hover">
+          <thead>
+            <tr>
+              <th class="text-center">ID</th>
+              <th class="text-center">Item name</th>
+              <th class="text-center">Quantity</th>
+              <th class="text-center">Price</th>
+              <th class="text-center">&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of items">
+              <td>{{ item.id }}</td>
+              <td>{{ item.itemName }}</td>
+              <td>{{ item.Quantity }}</td>
+              <td>{{ item.price }}</td>
+              <td>
+                <button type="button" class="btn btn-info btn-sm mr-2" (click)="showEditItemForm(item)">Edit</button>
+  
+                <button type="button" class="btn btn-danger btn-sm" (click)="removeItem(item)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="btn btn-success" (click)="showAddItemForm()">Add New Item</button>
+  
+        <div class="mt-4">
+          <form *ngIf="itemForm">
+            <h2>Add New Item</h2>
+            <p>Item Name: <input type="text" name="firstName" [(ngModel)]="newItem.itemName" /></p>
+            <p>Quantity: <input type="number" name="quantity" [(ngModel)]="newItem.Quantity" /></p>
+            <p>Price: <input type="number" name="price" [(ngModel)]="newItem.price" /></p>
+            
+            <p>
+              <button type="button" class="btn btn-primary mr-2" (click)="saveItem(newItem)">Submit</button>
+              <button type="button" class="btn btn-warning" (click)="cancelNewItem()">Cancel</button>
+            </p>
+          </form>
+  
+          <form *ngIf="editItemForm">
+            <h2>Edit Item Details</h2>
+            
+            
+            <p>Item Name: <input type="text" name="firstName" [(ngModel)]="editItemForm.itemName" /></p>
+            <p>Quantity: <input type="number" name="quantity" [(ngModel)]="editItemForm.itemName" /></p>
+            <p>Price: <input type="number" name="price" [(ngModel)]="editItemForm.itemName" /></p>
+            
+            <p>
+              <button type="button" class="btn btn-primary mr-2" (click)="updateItem()">Submit</button>
+              <button type="button" class="btn btn-warning" (click)="cancelEdits()">Cancel</button>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+

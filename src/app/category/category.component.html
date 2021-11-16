@@ -1,0 +1,6 @@
+<div class="form-group">  
+    <label for="categories">SHOP BY CATEGORY</label>  
+    <select class="form-control" name="categories" required ngModel>  
+      <option *ngFor="let cate of categories" [value]="cate">{{cate}}</option>  
+    </select>  
+  </div> 
